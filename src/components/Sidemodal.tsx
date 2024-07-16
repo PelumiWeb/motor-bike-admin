@@ -8,43 +8,49 @@ import { UserIcon } from "./icons/UserIcons";
 import { EuroIcon } from "./icons/EuroIcon";
 import { SettingsIcon } from "./icons/SettingsIcon";
 import { RentalIcon } from "./icons/RentalIcon";
+import { useAppDispatch, useAppSelector } from "../app/hook";
+import { setActive } from "../app/features/tabsSlice";
+import { tabsName } from "../utils/TabsTypes";
 
 export const tabs = [
   {
     id: 0,
-    name: "Dashboard",
+    name: tabsName.dashboad,
     icon: HomeIcon,
   },
   {
     id: 1,
-    name: "Bicycle",
+    name: tabsName.bikeManagement,
     icon: BicycleIcon,
   },
   {
     id: 2,
-    name: "Rental Management",
+    name: tabsName.rentalManagement,
     icon: RentalIcon,
   },
   {
     id: 3,
-    name: "User Management",
+    name: tabsName.userManagement,
     icon: UserIcon,
   },
   {
     id: 4,
-    name: "Payment",
+    name: tabsName.payment,
     icon: EuroIcon,
   },
   {
     id: 5,
-    name: "Accounts",
+    name: tabsName.user,
     icon: SettingsIcon,
   },
 ];
 
 
 function SideModal() {
-  const [active, setActive] = React.useState("Dashboard");
+  const dispatch  = useAppDispatch()
+  const tab = useAppSelector((state) => state.tabs.name);
+
+  // const [active, setActive] = React.useState("Dashboard");
 
   
   return (
@@ -56,14 +62,14 @@ function SideModal() {
         <div>
           {tabs?.map(({ name, icon: Icon, id }) => (
             <div
-              onClick={() => setActive(name)}
+              onClick={() => dispatch(setActive(name))}
               className={`${
-                active == name && "bg-[#FFEFD8]"
+                tab == name && "bg-[#FFEFD8]"
               }  flex  rounded-[30px] h-[44px] px-2 items-center  mb-2 cursor-pointer`}>
-              <Icon color={active === name ? "#F18E00" : "#8C8C8C"} />
+              <Icon color={tab === name ? "#F18E00" : "#8C8C8C"} />
               <p
                 className={`${
-                  active == name ? "text-primary" : "text-gray300"
+                  tab == name ? "text-primary" : "text-gray300"
                 }  ml-2`}>
                 {name}
               </p>

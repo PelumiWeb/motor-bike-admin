@@ -16,10 +16,12 @@ function App() {
       </div>
       {/* Right */}
 
-      <div className="w-[80%]">
+      <div className="w-[80%] h-screen">
         <Header />
         {/* Content */}
-        <RenderContents />
+        <div className="flex-1 overflow-y-auto">
+          <RenderContents />
+        </div>
       </div>
     </section>
   );

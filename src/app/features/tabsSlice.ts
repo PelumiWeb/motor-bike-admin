@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../app/store'
+import { tabsName } from '../../utils/TabsTypes'
 
 // Define a type for the slice state
 interface tab {
@@ -9,7 +10,7 @@ interface tab {
 
 // Define the initial state using that type
 const initialState: tab = {
-  name: "Dashboard",
+  name: tabsName.dashboad,
 }
 
 export const tabSlice = createSlice({
