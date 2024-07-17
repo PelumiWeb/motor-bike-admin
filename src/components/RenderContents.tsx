@@ -6,7 +6,7 @@ import { BikeManagement } from "../contents/BikeManagement";
 import RentalManagement from "../contents/RentalManagement/RentalManagement";
 import UserManagement from "../contents/UserManagement/UserManagement";
 import Payments from "../contents/Payments";
-import Account from "../contents/Account";
+import Account from "../contents/Account/Account";
 
 export default function RenderContents() {
   const tab = useAppSelector((state) => state.tabs.name);
