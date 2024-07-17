@@ -8,6 +8,7 @@ function CustomButton({
   textColor = "text-white",
   borderColor,
   ml,
+  py = "py-4",
   onClick,
 }: {
   name: string;
@@ -17,16 +18,17 @@ function CustomButton({
   bg?: string;
   textColor?: string;
   borderColor?: string;
-  ml?:string;
+  ml?: string;
+  py?: string;
   onClick?: () => void;
 }) {
   return (
     <button
-    onClick={onClick}
+      onClick={onClick}
       disabled={disabled}
       className={`${
         width ? width : "w-full"
-      } my-8 ${bg} rounded-full ${textColor} py-4 disabled:bg-gray200 disabled:text-gray100 cursor-pointer flex justify-center items-center ${
+      } my-8 ${bg} rounded-full ${textColor} ${py} disabled:bg-gray200 disabled:text-gray100 cursor-pointer flex justify-center items-center ${
         borderColor && borderColor
       } ${ml && ml}`}>
       {iconLeft && <img src={iconLeft} className="w-[16px] mr-4" />}

@@ -3,8 +3,8 @@ import Dashboard from "../contents/Dashboard";
 import { useAppSelector } from "../app/hook";
 import { tabsName } from "../utils/TabsTypes";
 import { BikeManagement } from "../contents/BikeManagement";
-import RentalManagement from "../contents/RentalManagement";
-import UserManagement from "../contents/UserManagement";
+import RentalManagement from "../contents/RentalManagement/RentalManagement";
+import UserManagement from "../contents/UserManagement/UserManagement";
 import Payments from "../contents/Payments";
 import Account from "../contents/Account";
 
