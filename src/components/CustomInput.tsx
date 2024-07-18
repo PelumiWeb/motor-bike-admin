@@ -4,7 +4,9 @@ import type { UploadProps } from "antd";
 import { message, Upload } from "antd";
 import upload from "../assets/icons/upload.svg";
 import { Input } from "antd";
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { LockOutlined, DollarOutlined } from "@ant-design/icons";
+import dollar from "../assets/icons/dollar.svg";
+import TextArea from "antd/es/input/TextArea";
 
 const { Dragger } = Upload;
 
@@ -19,6 +21,8 @@ type InputData = {
   input?: boolean;
   type?: string;
   iconRight?: boolean;
+  iconLeft?: any;
+  textArea?: any
 };
 function CustomInput(data: InputData) {
   const props: UploadProps = {
@@ -54,12 +58,27 @@ function CustomInput(data: InputData) {
 
       {data?.input && (
         <Input
-          className="border  w-full border-[#D0D5DD] outline-none rounded-lg h-[56px] p-[16px]"
+          prefix={data?.iconLeft && data?.iconLeft}
+          className={`border  ${
+            data?.width ? data?.width : "w-full"
+          }  border-[#D0D5DD] outline-none rounded-lg h-[56px] p-[16px]`}
           placeholder={data.placeholder}
           //   value={data.value}
 
           type={data?.type}
           suffix={data?.iconRight && <LockOutlined />}
+        />
+      )}
+      {data?.textArea && (
+        <TextArea
+          className={`border  ${
+            data?.width ? data?.width : "w-full"
+          }  border-[#D0D5DD] outline-none rounded-lg h-[56px] p-[16px]`}
+          placeholder={data.placeholder}
+          showCount
+          maxLength={500}
+          style={{ height: 120, resize: "none" }}
+          //   value={data.value}
         />
       )}
       {data?.upload && (

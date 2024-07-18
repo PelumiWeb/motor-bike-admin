@@ -2,7 +2,7 @@ import React from "react";
 import Dashboard from "../contents/Dashboard";
 import { useAppSelector } from "../app/hook";
 import { tabsName } from "../utils/TabsTypes";
-import { BikeManagement } from "../contents/BikeManagement";
+import BikeManagement from "../contents/Bikemanagement/index";
 import RentalManagement from "../contents/RentalManagement/RentalManagement";
 import UserManagement from "../contents/UserManagement/UserManagement";
 import Payments from "../contents/Payments";
@@ -10,7 +10,7 @@ import Account from "../contents/Account/Account";
 
 export default function RenderContents() {
   const tab = useAppSelector((state) => state.tabs.name);
-  
+
   const showContents = (tab: any) => {
     switch (tab) {
       case tabsName.dashboad:
@@ -36,7 +36,7 @@ export default function RenderContents() {
         break;
 
       default:
-        return <Account />
+        return <Account />;
       // code block
     }
   };
