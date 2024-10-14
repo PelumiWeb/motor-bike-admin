@@ -10,14 +10,16 @@ function BikeManagerWrappper({}: Props) {
 
   return (
     <div className="px-8 py-4 h-[90vh]">
+        { !addOpenUploadPage &&
       <div className="w-full flex flex-1 justify-between items-center -mt-8">
         <h3>Bike Management</h3>
-        <CustomButton
+       <CustomButton
           onClick={() => setAddOpenUploadPage(true)}
           width="w-[250px]"
           name="Add Motocycle"
         />
       </div>
+}
       {addOpenUploadPage ? <Upload /> : <BikeManagement />}
     </div>
   );
